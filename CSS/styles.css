@@ -1,5 +1,6 @@
 :root {
   --text-secondary-color: #757575;
+  --text-bright-color: #fff;
   --secondary-background-color: #2f303a;
   --secondary-background-color-transparent: rgba(47, 48, 58, 0.4);
   --button-color: #f5f4fa;
@@ -73,7 +74,7 @@ a:active {
   font-family: 'raleway', sans-serif;
   font-size: 26px;
   line-height: 1.17;
-  color: #2196f3;
+  color: var(--highlight-color);
   display: inline-block;
 }
 
@@ -82,7 +83,7 @@ a:active {
 }
 
 .logo-footer {
-  color: #ffffff;
+  color: var(--text-bright-color);
 }
 
 .footer-padding {
@@ -101,6 +102,22 @@ nav {
 
 .nav-link {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active {
+  position: relative;
+  color: var(--highlight-color);
+}
+
+.active::after {
+  content: '';
+  display: block;
+  background-color: var(--highlight-color);
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  bottom: -28px;
+  border-radius: 2px;
 }
 
 .contacts {
@@ -165,7 +182,7 @@ nav {
   text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--text-bright-color);
   padding-top: 200px;
   padding-bottom: 30px;
   margin: 0;
@@ -185,7 +202,7 @@ nav {
   letter-spacing: 0.06em;
   text-align: center;
   background-color: var(--highlight-color);
-  color: #ffffff;
+  color: var(--text-bright-color);
   width: 200px;
   height: 50px;
   border-style: hidden;
@@ -209,7 +226,7 @@ nav {
 
 .article-box {
   border-radius: 4px;
-  background: #f5f4fa;
+  background: var(--button-color);
   width: 270px;
   height: 120px;
   display: flex;
@@ -235,6 +252,7 @@ nav {
   padding-top: 50px;
   justify-content: center;
 }
+
 img {
   display: block;
 }
@@ -257,13 +275,12 @@ img {
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  z-index: 1;
-  color: #fff;
+  color: var(--text-bright-color);
   background-color: rgba(47, 48, 58, 0.8);
 }
 
 .team-section {
-  background-color: #f5f4fa;
+  background-color: var(--button-color);
 }
 
 .social-links {
@@ -304,7 +321,7 @@ img {
 .footer-links {
   border: 1px hidden var(--secondary-icon-color);
   background-color: var(--secondary-icon-color);
-  color: #ffffff;
+  color: var(--text-bright-color);
 }
 
 .team-images {
@@ -314,7 +331,7 @@ img {
 }
 
 .team-card {
-  background-color: #ffffff;
+  background-color: var(--text-bright-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
@@ -375,7 +392,7 @@ img {
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: var(--secondary-background-color);
-  color: #ffffff;
+  color: var(--text-bright-color);
   line-height: 1.7;
 }
 
@@ -442,6 +459,7 @@ img {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-name {
@@ -456,6 +474,32 @@ img {
   border-right: solid 1px #eeeeee;
   border-bottom: solid 1px #eeeeee;
   padding: 20px 24px 20px 24px;
+}
+
+.portfolio-card-overflow {
+  position: relative;
+  width: 370px;
+  height: 294px;
+  overflow: hidden;
+}
+
+.portfolio-card-overlay {
+  position: absolute;
+  color: var(--text-bright-color);
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 49px 45px 49px 24px;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.portfolio-card:hover .portfolio-card-overlay {
+  transform: translateY(-100%);
 }
 
 .portfolio-button {
@@ -473,14 +517,14 @@ img {
 
 .portfolio-button:hover {
   background-color: var(--highlight-color);
-  color: #ffffff;
+  color: var(--text-bright-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .portfolio-button:focus {
   background-color: var(--highlight-color);
-  color: #ffffff;
+  color: var(--text-bright-color);
 }
 
 .portfolio-button-text {
@@ -495,7 +539,7 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
-  transition: 666ms ease-in-out;
+  transition: 500ms ease-in-out;
 }
 
 .modal {
@@ -507,7 +551,7 @@ img {
   bottom: 222px;
   left: 536px;
   left: 50%;
-  background: #fff;
+  background: var(--text-bright-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
@@ -530,7 +574,7 @@ img {
   right: 8px;
   width: 30px;
   height: 30px;
-  background-color: #fff;
+  background-color: var(--text-bright-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
